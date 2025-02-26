@@ -1,4 +1,4 @@
-name: untitled1
+name: EnviroSafeIot
 description: "A new Flutter project."
 publish_to: 'none'
 
@@ -13,11 +13,13 @@ dependencies:
   cupertino_icons: ^1.0.8
   google_fonts: ^6.2.1
   flutter_native_splash: ^2.4.5
+  flutter_otp_text_field: ^1.5.0+1
 
 dev_dependencies:
   flutter_test:
     sdk: flutter
   flutter_lints: ^5.0.0  # Déplacé ici
+  flutter_launcher_icons: ^0.14.3
 
 flutter_native_splash:
   color: "#f7f6f1"

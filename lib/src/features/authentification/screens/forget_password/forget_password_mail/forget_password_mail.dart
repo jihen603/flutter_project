@@ -1,8 +1,10 @@
 import 'package:flutter/material.dart';
-import 'package:untitled1/src/constants/image_strings.dart';
-import 'package:untitled1/src/constants/sizes.dart';
-import 'package:untitled1/src/constants/text_strings.dart';
-import 'package:untitled1/src/features/authentification/form_header_widget.dart';
+import 'package:EnviroSafeIot/src/constants/image_strings.dart';
+import 'package:EnviroSafeIot/src/constants/sizes.dart';
+import 'package:EnviroSafeIot/src/constants/text_strings.dart';
+import 'package:EnviroSafeIot/src/features/authentification/form_header_widget.dart';
+
+import '../forget_password_otp/otp_screen.dart';
 
 class ForgetPasswordMailScreen extends StatelessWidget {
   const ForgetPasswordMailScreen({Key? key}) : super(key: key);
@@ -49,7 +51,13 @@ class ForgetPasswordMailScreen extends StatelessWidget {
               width: double.infinity,
               child: ElevatedButton(
                 onPressed: () {
-                  // Ajouter la logique ici
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                      builder: (context) => const OTPScreen(), // Navigue vers OTPScreen
+                    ),
+                  );
+
                 },
                 child: const Text("Next"),
               ),

@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:untitled1/src/features/authentification/screens/forget_password/forget_password_mail/forget_password_mail.dart';
-import 'package:untitled1/src/features/authentification/screens/forget_password/forget_password_phone/forget_password_phone.dart';
+import 'package:EnviroSafeIot/src/features/authentification/screens/forget_password/forget_password_mail/forget_password_mail.dart';
+import 'package:EnviroSafeIot/src/features/authentification/screens/forget_password/forget_password_phone/forget_password_phone.dart';
 
 import '../../../../../constants/sizes.dart';
 import '../../../../../constants/text_strings.dart';

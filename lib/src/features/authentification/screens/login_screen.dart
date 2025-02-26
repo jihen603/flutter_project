@@ -1,8 +1,8 @@
 import 'dart:ui';
 import 'package:flutter/material.dart';
-import 'package:untitled1/src/constants/image_strings.dart';
-import 'package:untitled1/src/features/authentification/screens/signup/signup.dart';
-import 'package:untitled1/src/features/authentification/screens/forget_password/forget_password_options/forget_password_model_bottom_sheet.dart';
+import 'package:EnviroSafeIot/src/constants/image_strings.dart';
+import 'package:EnviroSafeIot/src/features/authentification/screens/signup/signup.dart';
+import 'package:EnviroSafeIot/src/features/authentification/screens/forget_password/forget_password_options/forget_password_model_bottom_sheet.dart';
 
 class LoginScreen extends StatefulWidget {
   const LoginScreen({Key? key}) : super(key: key);

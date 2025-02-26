@@ -1,7 +1,7 @@
 import 'dart:ui'; // Import nécessaire pour BackdropFilter
 import 'package:flutter/material.dart';
-import 'package:untitled1/src/constants/image_strings.dart';
-import 'package:untitled1/src/constants/text_strings.dart';
+import 'package:EnviroSafeIot/src/constants/image_strings.dart';
+import 'package:EnviroSafeIot/src/constants/text_strings.dart';
 import '../login_screen.dart';
 
 

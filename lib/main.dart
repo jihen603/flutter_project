@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:untitled1/src/features/authentification/screens/login_screen.dart';
-import 'package:untitled1/src/features/authentification/screens/signup/signup.dart';
-import 'package:untitled1/src/features/authentification/screens/splash_screen/splash_screen.dart';
-import 'package:untitled1/src/utils/theme/theme.dart';
+import 'package:EnviroSafeIot/src/features/authentification/screens/login_screen.dart';
+import 'package:EnviroSafeIot/src/features/authentification/screens/signup/signup.dart';
+import 'package:EnviroSafeIot/src/features/authentification/screens/splash_screen/splash_screen.dart';
+import 'package:EnviroSafeIot/src/utils/theme/theme.dart';
 
 void main() {
   runApp(const MyApp());

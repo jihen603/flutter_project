@@ -1,6 +1,6 @@
 import 'dart:ui';
 import 'package:flutter/material.dart';
-import 'package:untitled1/src/constants/image_strings.dart';
+import 'package:EnviroSafeIot/src/constants/image_strings.dart';
 
 
 
