@@ -10,17 +10,49 @@ class ForgetPasswordMailScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: Container(
+      body: Padding(
         padding: const EdgeInsets.all(tDefaultSize),
         child: Column(
-          children: const [
-            SizedBox(height: tDefaultSize * 4),
-            FormHeaderWidget(
+          crossAxisAlignment: CrossAxisAlignment.center,
+          children: [
+            const SizedBox(height: tDefaultSize * 4),
+            const FormHeaderWidget(
               image: tForgetPasswordImage,
               title: tForgetPassword,
               subTitle: tForgetPasswordSubTitle,
               crossAxisAlignment: CrossAxisAlignment.center,
               heightBetween: 30.0,
+            ),
+            const SizedBox(height: 30),
+
+            // Icône Email
+            const Icon(Icons.email, size: 60, color: Colors.blue),
+
+            const SizedBox(height: 20),
+
+            // Champ de saisie Email
+            TextField(
+              decoration: InputDecoration(
+                labelText: "Enter your email",
+                border: OutlineInputBorder(
+                  borderRadius: BorderRadius.circular(10),
+                ),
+                prefixIcon: const Icon(Icons.email_outlined),
+              ),
+              keyboardType: TextInputType.emailAddress,
+            ),
+
+            const SizedBox(height: 30),
+
+            // Bouton Next
+            SizedBox(
+              width: double.infinity,
+              child: ElevatedButton(
+                onPressed: () {
+                  // Ajouter la logique ici
+                },
+                child: const Text("Next"),
+              ),
             ),
           ],
         ),
@@ -28,4 +60,5 @@ class ForgetPasswordMailScreen extends StatelessWidget {
     );
   }
 }
+
 
