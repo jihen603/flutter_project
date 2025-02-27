@@ -12,7 +12,21 @@ class LoginScreen extends StatefulWidget {
 }
 
 class _LoginScreenState extends State<LoginScreen> {
-  bool _rememberMe = false; // Variable d'état pour la case "Remember me"
+  bool _rememberMe = false; // Checkbox état
+  final TextEditingController _emailController = TextEditingController();
+  String? _emailError;
+
+  // Fonction pour valider l'email
+  void _validateEmail() {
+    String email = _emailController.text;
+    String pattern =
+        r'^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$';
+    RegExp regex = RegExp(pattern);
+
+    setState(() {
+      _emailError = regex.hasMatch(email) ? null : "Invalid email format";
+    });
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -25,17 +39,13 @@ class _LoginScreenState extends State<LoginScreen> {
             tSplashTopImage,
             fit: BoxFit.cover,
           ),
-
           // Effet de flou
           Positioned.fill(
             child: BackdropFilter(
               filter: ImageFilter.blur(sigmaX: 10, sigmaY: 10),
-              child: Container(
-                color: Colors.black.withOpacity(0.3),
-              ),
+              child: Container(color: Colors.black.withOpacity(0.3)),
             ),
           ),
-
           // Contenu principal
           Center(
             child: Column(
@@ -49,22 +59,18 @@ class _LoginScreenState extends State<LoginScreen> {
                     fontWeight: FontWeight.bold,
                   ),
                 ),
-
                 const SizedBox(height: 8),
                 const Text(
                   "Please Login Here",
-                  style: TextStyle(
-                    color: Colors.white70,
-                    fontSize: 16,
-                  ),
+                  style: TextStyle(color: Colors.white70, fontSize: 16),
                 ),
-
                 const SizedBox(height: 20),
 
-                // Champ Email
+                // Champ Email avec validation
                 Padding(
                   padding: const EdgeInsets.symmetric(horizontal: 40),
                   child: TextField(
+                    controller: _emailController,
                     decoration: InputDecoration(
                       filled: true,
                       fillColor: Colors.white.withOpacity(0.8),
@@ -73,7 +79,10 @@ class _LoginScreenState extends State<LoginScreen> {
                       border: OutlineInputBorder(
                         borderRadius: BorderRadius.circular(10),
                       ),
+                      errorText: _emailError, // Message d'erreur si invalide
                     ),
+                    keyboardType: TextInputType.emailAddress,
+                    onChanged: (value) => _validateEmail(),
                   ),
                 ),
 
@@ -128,7 +137,10 @@ class _LoginScreenState extends State<LoginScreen> {
                 // Bouton Login
                 ElevatedButton(
                   onPressed: () {
-                    // TODO: Ajouter l'action de connexion
+                    _validateEmail();
+                    if (_emailError == null) {
+                      // TODO: Ajouter la logique de connexion
+                    }
                   },
                   style: ElevatedButton.styleFrom(
                     backgroundColor: Colors.white,
@@ -145,7 +157,7 @@ class _LoginScreenState extends State<LoginScreen> {
                 // Bouton Google Sign-In
                 ElevatedButton(
                   onPressed: () {
-                    // TODO: Ajouter l'action pour la connexion avec Google
+                    // TODO: Ajouter la connexion avec Google
                   },
                   style: ElevatedButton.styleFrom(
                     backgroundColor: Colors.white,
@@ -166,11 +178,7 @@ class _LoginScreenState extends State<LoginScreen> {
                       const SizedBox(width: 10),
                       const Text(
                         "Sign in with Google",
-                        style: TextStyle(
-                          color: Colors.black,
-                          fontSize: 16,
-                          fontWeight: FontWeight.w500,
-                        ),
+                        style: TextStyle(color: Colors.black, fontSize: 16, fontWeight: FontWeight.w500),
                       ),
                     ],
                   ),
@@ -178,7 +186,7 @@ class _LoginScreenState extends State<LoginScreen> {
 
                 const SizedBox(height: 20),
 
-                // Lien "Don't have an account? Sign Up" avec navigation vers SignUpScreen
+                // Lien "Don't have an account? Sign Up"
                 Row(
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: [

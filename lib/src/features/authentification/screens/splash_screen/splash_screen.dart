@@ -92,7 +92,7 @@ class _SplashScreenState extends State<SplashScreen> {
                           side: const BorderSide(color: Colors.white), // Bordure blanche
                         ),
                         child: const Text(
-                          "Operator",
+                          "Administrator",
                           style: TextStyle(fontSize: 18, color: Colors.white),
                         ),
                       ),
@@ -111,7 +111,7 @@ class _SplashScreenState extends State<SplashScreen> {
                           backgroundColor: Colors.white, // Couleur du bouton
                         ),
                         child: const Text(
-                          "User",
+                          "Operator",
                           style: TextStyle(fontSize: 18, color: Colors.black),
                         ),
                       ),

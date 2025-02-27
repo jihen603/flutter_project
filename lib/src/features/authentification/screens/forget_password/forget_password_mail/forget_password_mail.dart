@@ -1,3 +1,4 @@
+import 'dart:ui';
 import 'package:flutter/material.dart';
 import 'package:EnviroSafeIot/src/constants/image_strings.dart';
 import 'package:EnviroSafeIot/src/constants/sizes.dart';
@@ -12,58 +13,76 @@ class ForgetPasswordMailScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: Padding(
-        padding: const EdgeInsets.all(tDefaultSize),
-        child: Column(
-          crossAxisAlignment: CrossAxisAlignment.center,
-          children: [
-            const SizedBox(height: tDefaultSize * 4),
-            const FormHeaderWidget(
-              image: tForgetPasswordImage,
-              title: tForgetPassword,
-              subTitle: tForgetPasswordSubTitle,
+      body: Stack(
+        children: [
+          // Image de fond
+          Positioned.fill(
+            child: Image.asset(
+              'assets/images/backgroundd.jpg',
+              fit: BoxFit.cover,
+            ),
+          ),
+          // Effet de flou
+          Positioned.fill(
+            child: BackdropFilter(
+              filter: ImageFilter.blur(sigmaX: 10, sigmaY: 10),
+              child: Container(
+                color: Colors.black.withOpacity(0.2),
+              ),
+            ),
+          ),
+          Padding(
+            padding: const EdgeInsets.all(tDefaultSize),
+            child: Column(
               crossAxisAlignment: CrossAxisAlignment.center,
-              heightBetween: 30.0,
-            ),
-            const SizedBox(height: 30),
-
-            // Icône Email
-            const Icon(Icons.email, size: 60, color: Colors.blue),
-
-            const SizedBox(height: 20),
-
-            // Champ de saisie Email
-            TextField(
-              decoration: InputDecoration(
-                labelText: "Enter your email",
-                border: OutlineInputBorder(
-                  borderRadius: BorderRadius.circular(10),
+              children: [
+                const SizedBox(height: tDefaultSize * 4),
+                const FormHeaderWidget(
+                  image: tForgetPasswordImage,
+                  title: tForgetPassword,
+                  subTitle: tForgetMailSubTitle,
+                  crossAxisAlignment: CrossAxisAlignment.center,
+                  heightBetween: 30.0,
                 ),
-                prefixIcon: const Icon(Icons.email_outlined),
-              ),
-              keyboardType: TextInputType.emailAddress,
-            ),
-
-            const SizedBox(height: 30),
-
-            // Bouton Next
-            SizedBox(
-              width: double.infinity,
-              child: ElevatedButton(
-                onPressed: () {
-                  Navigator.push(
-                    context,
-                    MaterialPageRoute(
-                      builder: (context) => const OTPScreen(), // Navigue vers OTPScreen
+                const SizedBox(height: 30),
+                const Icon(Icons.email, size: 60, color: Colors.white),
+                const SizedBox(height: 20),
+                TextField(
+                  decoration: InputDecoration(
+                    labelText: "Enter your email",
+                    labelStyle: TextStyle(color: Colors.white),
+                    border: OutlineInputBorder(
+                      borderRadius: BorderRadius.circular(10),
                     ),
-                  );
-
-                },
-                child: const Text("Next"),
-              ),
+                    prefixIcon: const Icon(Icons.email_outlined, color: Colors.white),
+                    filled: true,
+                    fillColor: Colors.white.withOpacity(0.2),
+                  ),
+                  keyboardType: TextInputType.emailAddress,
+                  style: TextStyle(color: Colors.white),
+                ),
+                const SizedBox(height: 30),
+                SizedBox(
+                  width: double.infinity,
+                  child: ElevatedButton(
+                    onPressed: () {
+                      Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                          builder: (context) => const OTPScreen(),
+                        ),
+                      );
+                    },
+                    style: ElevatedButton.styleFrom(
+                      backgroundColor: Colors.blue,
+                    ),
+                    child: const Text("Next", style: TextStyle(color: Colors.white)),
+                  ),
+                ),
+              ],
             ),
-          ],
-        ),
+          ),
+        ],
       ),
     );
   }
